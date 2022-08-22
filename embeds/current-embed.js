@@ -1,7 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 
 const getTemperature = (temp) => {
-    return temp > 0 ? `+${Math.floor(temp)}°C` : `-${Math.floor(temp)}°C`;
+    return temp > 0 ? `+${Math.floor(temp)}°C` : `${Math.floor(temp)}°C`;
 };
 
 const getFirstLetterCapital = (string) => {
