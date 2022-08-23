@@ -21,10 +21,12 @@ module.exports = {
         }
         catch (error) {
             if (error.message === 'Request path contains unescaped characters') {
-                interaction.editReply(':exclamation: Введите название населенного пункта на английском языке');
-                return;
+                throw new Error(':exclamation: Введите название населенного пункта на английском языке');
             }
-            interaction.editReply(`:exclamation: ${error.message}`);
+            if (error.message === 'Request failed with status code 404') {
+                throw new Error(':exclamation: Населенный пункт не найден');
+            }
+            throw new Error(error.message);
         }
     },
 };
