@@ -1,4 +1,3 @@
-require('dotenv').config();
 const $api = require('../http/index');
 
 module.exports = class Service {
