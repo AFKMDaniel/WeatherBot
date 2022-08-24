@@ -1,6 +1,7 @@
 const { Client, GatewayIntentBits, Collection, Routes } = require('discord.js');
 const { REST } = require('@discordjs/rest');
 const fs = require('fs');
+const keepAlive = require('./server');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -46,5 +47,6 @@ client.on('interactionCreate', async interaction => {
 	}
 });
 
+keepAlive();
 client.login(process.env.DISCORD_TOKEN);
 
